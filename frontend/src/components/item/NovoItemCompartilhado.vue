@@ -31,7 +31,10 @@
           <span class="error" v-if="error.tipo">{{error.tipo}}</span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <b-button variant="primary" type="submit">
+          <b-spinner v-show="this.loading" small type="grow"></b-spinner>
+          {{this.loading ? 'Enviando' : 'Enviar'}}
+        </b-button>
       </form>
     </div>
   </div>
@@ -48,6 +51,7 @@ export default {
       error: {},
 
       success: false,
+      loading: false,
 
       httpOptions: {
           baseURL: this.$root.config.url,
@@ -62,14 +66,18 @@ export default {
 
   methods: {
     processForm: function() {
+      this.loading = true;
       axios.put("/api/item/novo", this.item, this.httpOptions)
         .then(response => {
           this.success = true;
           this.error = {};
           setTimeout(this.goBackToList, 2000);
+          sleep(1);
+          this.loading = false;
         })
         .catch(error => {
           this.error = error.response.data.errors;
+          this.loading = false;
         });
     },
 

@@ -21,8 +21,11 @@
 
         <p class="label">Tipo</label>
         <p class="text" >{{item.tipo}}</p>
-
-        <button type="submit" class="btn btn-danger" @click="remove">Remover o item</button>
+        
+        <b-button variant="primary" type="submit" class="btn btn-danger" @click="remove">
+          <b-spinner v-show="this.loading" small type="grow"></b-spinner>
+          {{this.loading ? 'Removendo' : 'Remover o item'}}
+        </b-button>
       </div>
     </div>
   </div>
@@ -38,7 +41,7 @@ export default {
     return {
       error: false,
       success: false,
-
+      loading: false,
       httpOptions: {
           baseURL: this.$root.config.url,
           headers: {
@@ -52,15 +55,20 @@ export default {
 
   methods: {
     remove: function() {
+      this.loading = true;
       axios.delete("/api/item/" + this.item.id, this.httpOptions)
         .then(response => {
           this.success = true;
           this.error = false;
           setTimeout(this.goBackToList, 2000);
+          sleep(1);
+          this.loading = false;
         })
         .catch(error => {
           this.error = true;
           this.success = false;
+          sleep(1);
+          this.loading = false;
         });
     },
 

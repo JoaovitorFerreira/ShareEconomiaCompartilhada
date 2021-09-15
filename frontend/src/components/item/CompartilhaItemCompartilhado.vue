@@ -34,11 +34,10 @@
                             </div>
                             <br/>
                             <br/>
-                            <button
-                                    type="submit"
-                                    class="btn btn-primary form-group col-md-4 ml-compartilhar"
-                                    @click="compartilha"
-                            >Compartilhar</button>
+                            <b-button variant="primary" type="submit" @click="compartilha" class="btn btn-primary form-group col-md-4 ml-compartilhar">
+                                <b-spinner v-show="this.loading" small type="grow"></b-spinner>
+                                {{this.loading ? 'Compartilhando' : 'Compartilhar'}}
+                            </b-button>
                         </div>
                     </div>
                 </div>
@@ -56,6 +55,7 @@
         data() {
             return {
                 success: false,
+                loading: false,
                 compartilhamento: {
                     nomeItem: '',
                     emailDestinatario: '',
@@ -75,12 +75,15 @@
         },
         methods: {
             compartilha: function() {
+                this.loading = true;
                 this.compartilhamento.nomeItem = this.item.nome;
                 axios.put("api/compartilhamento/novo", this.compartilhamento, this.httpOptions)
                     .then(response => {
                         this.success = true;
                         this.error = {};
                         setTimeout(this.goBackToDetails, 2000);
+                        sleep(1);
+                        this.loading = false;
                         console.log('ENTRA na response');
                     })
                     .catch(error => {
@@ -88,6 +91,7 @@
                         this.error = error.response.data.errors;
                         console.log(error)
                         console.log('ERRO 2');
+                        this.loading = false;
                     });
             },
             goBackToDetails: function () {
