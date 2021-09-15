@@ -6,7 +6,7 @@
       
       <form @submit.prevent="processForm">
         <div class="form-group">
-          <label for="password">Nova senha</label>
+          <label for="password">Senha atual</label>
           <input type="password" class="form-control" id="password" placeholder="Entre com a senha atual" v-model="form.senhaAntiga"></input>
           <span class="error" v-if="error.senhaAntiga">{{error.senhaAntiga}}</span>
         </div>
@@ -23,7 +23,7 @@
           <span class="error" v-if="error.senhaNovaRepetida">{{error.senhaNovaRepetida}}</span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Troca Senha</button>
+        <button type="submit" class="btn btn-primary">Trocar Senha</button>
       </form>
     </div>
   </div>

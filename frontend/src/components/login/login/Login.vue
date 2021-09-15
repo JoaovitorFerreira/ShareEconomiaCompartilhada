@@ -4,7 +4,7 @@
       <h2 class="form-title">Login</h2>
       <h6 class="form-subtitle">Entre com as suas credenciais para o login.</h6>
 
-      <form @submit.prevent="processForm">
+      <b-form @submit.prevent="processForm">
         <div class="form-group">
           <label for="username">Login</label>
           <input type="text" class="form-control" id="username" placeholder="Entre o seu login" v-model="form.email">
@@ -17,19 +17,21 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
+      </b-form>
 
-      <div class="link-recuperar-senha">
-        <router-link class="link" :to="{ name: 'forgot-password' }" replace>
+      <b-container>
+        <div class="link-recuperar-senha">
+        <router-link  :to="{ name: 'forgot-password' }" replace>
           Recuperar a minha senha
         </router-link>
       </div>
-      
       <div class="link-criar-conta">
-        <router-link class="link" :to="{ name: 'create-account' }" replace>
+        <router-link :to="{ name: 'create-account' }" replace>
           Criar nova conta
         </router-link>
       </div>
+      </b-container>
+      
     </b-container>
   </b-container>
 </template>

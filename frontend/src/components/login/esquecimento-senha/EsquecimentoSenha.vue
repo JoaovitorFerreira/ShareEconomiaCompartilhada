@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="recuperacao-senha row" v-if="!this.$root.credentials">
-    <div class="col-md-4 col-md-offset-4 text-left">
+    <b-container class="col-md-4 col-md-offset-4 text-left">
       <h2 class="form-title">Recuperar senha</h2>
       <h6 class="form-subtitle">Entre com o seu e-mail no formulário abaixo. Um link para troca de senha será enviado por e-mail.</h6>
 
@@ -11,21 +11,21 @@
           <span class="error" v-if="error.email">{{error.email}}</span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Envia</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
 
       <div class="link-login">
-        <router-link class="link" :to="{ name: 'login' }">
-          Lembrou sua senha?
+        <router-link :to="{ name: 'login' }">
+          Voltar
         </router-link>
       </div>
       
       <div class="link-criar-conta">
-        <router-link class="link" :to="{ name: 'create-account' }">
+        <router-link :to="{ name: 'create-account' }">
           Criar nova conta
         </router-link>
       </div>
-    </div>
+    </b-container>
   </div>
 </template>
 

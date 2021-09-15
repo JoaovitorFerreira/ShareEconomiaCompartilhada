@@ -16,9 +16,9 @@ SHARE: Economia Compartilhada</b-navbar-brand>
           </b-nav-item>
               <b-nav-item ><router-link class="link" :to="{ name: 'item-received-list' }">Compartilhados comigo</router-link>
           </b-nav-item>
-          <b-dropdown right="true" text="Usuário" variant="primary">
+          <b-dropdown right text="Usuário" variant="primary">
           <b-dropdown-item >
-            <router-link class="dropLink" :to="{ name: 'change-password' }" replace>Troca senha</router-link>
+            <router-link class="dropLink" :to="{ name: 'change-password' }" replace>Trocar senha</router-link>
           </b-dropdown-item>
           <b-dropdown-divider></b-dropdown-divider>
           <b-dropdown-item >

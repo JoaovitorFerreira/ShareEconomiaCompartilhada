@@ -1,6 +1,6 @@
 <template lang="html">
 <div class="centralContent">
-  <b-container v-if="!$root.credentials">
+  <b-container>
         <div class="login">
             <img class="shareEco" alt="simbolo" src="/src/assets/sharedEcon.jfif" >
             <b-container  class="text-center">
@@ -9,7 +9,7 @@
                 seus itens no sistema e indicar que, durante um determinado período, eles serão utilizados por outros usuários.</p>
             </b-container>
         </div>
-    <b-container>
+    <b-container v-if="!$root.credentials">
       <hr class="my-2">
       <div class="row featurette">
         <div class="col-md-7">
@@ -52,10 +52,6 @@
   </b-container>  
   <b-container v-if="$root.credentials"> 
     <b-container class="login">
-      <img class="shareEco" alt="simbolo" src="/src/assets/sharedEcon.jfif" >
-      <b-container  class="text-center">
-        <h2 class="display-3">Economia Compartilhada</h2>
-      </b-container>
       <b-container  class="text-center">
         <hr class="featurette-divider">
         <h3>Olá {{$root.credentials.nome}}!</h3>

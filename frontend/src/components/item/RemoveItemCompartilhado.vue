@@ -56,7 +56,7 @@ export default {
         .then(response => {
           this.success = true;
           this.error = false;
-          setTimeout(this.goBackToList, 3000);
+          setTimeout(this.goBackToList, 2000);
         })
         .catch(error => {
           this.error = true;

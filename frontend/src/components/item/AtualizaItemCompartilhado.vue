@@ -31,7 +31,7 @@
           <span class="error" v-if="error.tipo">{{error.tipo}}</span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Envia</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
     </div>
   </div>
@@ -66,7 +66,7 @@ export default {
         .then(response => {
           this.success = true;
           this.error = {};
-          setTimeout(this.goBackToList, 3000);
+          setTimeout(this.goBackToList, 2000);
         })
         .catch(error => {
           this.error = error.response.data.errors;

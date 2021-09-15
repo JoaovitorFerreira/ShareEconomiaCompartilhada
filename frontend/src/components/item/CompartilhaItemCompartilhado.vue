@@ -80,7 +80,7 @@
                     .then(response => {
                         this.success = true;
                         this.error = {};
-                        setTimeout(this.goBackToDetails, 3000);
+                        setTimeout(this.goBackToDetails, 2000);
                         console.log('ENTRA na response');
                     })
                     .catch(error => {

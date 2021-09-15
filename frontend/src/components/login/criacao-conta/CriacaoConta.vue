@@ -29,11 +29,11 @@
           <span class="error" v-if="error.senhaRepetida">{{error.senhaRepetida}}</span>
         </div>
 
-        <button type="submit" class="btn btn-primary">Cria conta</button>
+        <button type="submit" class="btn btn-primary">Criar conta</button>
       </form>
 
       <div class="link-login">
-        <router-link class="link" :to="{ name: 'login' }">
+        <router-link :to="{ name: 'login' }">
           Já tenho uma conta
         </router-link>
       </div>

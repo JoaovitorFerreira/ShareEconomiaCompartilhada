@@ -5,7 +5,7 @@
       <h6 class="form-subtitle">Faça o login para entrar no sistema.</h6>
       
       <div class="link-login">
-        <router-link class="link" :to="{ name: 'login' }">
+        <router-link :to="{ name: 'login' }">
           Ir para a página de login.
         </router-link>
       </div>
