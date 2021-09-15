@@ -1,5 +1,3 @@
-# Shared4U
-
 ## Build Setup
 
 ``` bash
